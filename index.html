@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chart &mdash; The IIT JEE Voyage Guide</title>
+<meta name="description" content="A real route to IIT: personalised roadmaps, an honest branch-fit quiz, coaching comparisons, and the books that actually matter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">⊹</span>
+      <span class="brand-text">CHART<span class="brand-sub">/jee</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#roadmap">Roadmap</a>
+      <a href="#quiz">Branch Fit</a>
+      <a href="#branches">Branches</a>
+      <a href="#coaching">Coaching</a>
+      <a href="#books">Books</a>
+      <a href="#syllabus">Syllabus</a>
+      <a href="#olympiad">Olympiad</a>
+      <a href="#resources">Resources</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark and light mode">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
+      <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-links-mobile" id="nav-links-mobile">
+    <a href="#roadmap">Roadmap</a>
+    <a href="#quiz">Branch Fit</a>
+    <a href="#branches">Branches</a>
+    <a href="#coaching">Coaching</a>
+    <a href="#books">Books</a>
+    <a href="#syllabus">Syllabus</a>
+    <a href="#olympiad">Olympiad</a>
+    <a href="#resources">Resources</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="eyebrow"><span class="eyebrow-dot"></span> A working route, not a pep talk</p>
+    <h1 class="hero-title">Plot the course from<br><span class="hero-title-em">where you are</span> to IIT.</h1>
+    <p class="hero-sub">Class 11, Class 12, or dropper &mdash; the river, the delta, and the open sea all look different depending on where you're standing. This is a chart, built from your exact position, not a generic timeline.</p>
+    <div class="hero-cta">
+      <a href="#roadmap" class="btn btn-primary">Build my roadmap</a>
+      <a href="#quiz" class="btn btn-ghost">Find my branch</a>
+    </div>
+  </div>
+
+  <div class="voyage" aria-hidden="true">
+    <svg viewBox="0 0 1200 220" class="voyage-svg" preserveAspectRatio="none">
+      <path id="voyage-path" d="M 20 170 C 220 60, 320 220, 480 120 S 760 40, 900 110 S 1080 60, 1180 50" />
+    </svg>
+    <div class="voyage-points">
+      <div class="voyage-point" style="left:1.5%"><span class="vp-dot"></span><span class="vp-label">Class 11</span></div>
+      <div class="voyage-point" style="left:26%"><span class="vp-dot"></span><span class="vp-label">Class 12</span></div>
+      <div class="voyage-point" style="left:50%"><span class="vp-dot"></span><span class="vp-label">JEE Main</span></div>
+      <div class="voyage-point" style="left:74%"><span class="vp-dot"></span><span class="vp-label">JEE Advanced</span></div>
+      <div class="voyage-point" style="left:97%"><span class="vp-dot vp-dot-end"></span><span class="vp-label">IIT</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROADMAP GENERATOR ============ -->
+<section class="section" id="roadmap">
+  <div class="section-inner">
+    <p class="kicker">01 &mdash; Your position</p>
+    <h2 class="section-title">A roadmap dated from today, not from a template</h2>
+    <p class="section-lede">Tell the chart where you actually are. It calculates from <span id="today-label" class="mono-chip">today's date</span> and builds backward from your exam, not forward from "Day 1."</p>
+
+    <form class="card form-card" id="roadmap-form">
+      <div class="form-grid">
+        <div class="field">
+          <label for="rm-class">Current stage</label>
+          <select id="rm-class" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="11">Class 11</option>
+            <option value="12">Class 12</option>
+            <option value="dropper">Dropper / Repeater</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="rm-attempt">Target attempt</label>
+          <select id="rm-attempt" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="2027">JEE 2027</option>
+            <option value="2028">JEE 2028</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="rm-hours">Daily self-study hours (outside coaching/school)</label>
+          <select id="rm-hours" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="2">Under 3 hours</option>
+            <option value="4">3&ndash;5 hours</option>
+            <option value="6">5&ndash;7 hours</option>
+            <option value="8">7+ hours</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="rm-weak">Weakest subject right now</label>
+          <select id="rm-weak" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="physics">Physics</option>
+            <option value="chemistry">Chemistry</option>
+            <option value="math">Mathematics</option>
+            <option value="none">None &mdash; fairly balanced</option>
+          </select>
+        </div>
+        <div class="field field-wide">
+          <label for="rm-problem">Biggest current obstacle</label>
+          <select id="rm-problem" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="theory-gap">I understand theory but freeze on application</option>
+            <option value="calc">Silly mistakes / calculation slips</option>
+            <option value="time">Running out of time in tests</option>
+            <option value="consistency">Inconsistent daily routine</option>
+            <option value="backlog">Backlog from earlier chapters</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Generate roadmap</button>
+    </form>
+
+    <div class="roadmap-output" id="roadmap-output" hidden>
+      <div class="output-header">
+        <span class="mono-chip" id="output-date-chip"></span>
+        <h3 id="output-title"></h3>
+      </div>
+      <div id="output-body" class="output-body"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRANCH QUIZ ============ -->
+<section class="section section-alt" id="quiz">
+  <div class="section-inner">
+    <p class="kicker">02 &mdash; Branch fit</p>
+    <h2 class="section-title">Pick a branch because it fits, not because it's CS</h2>
+    <p class="section-lede">Eleven short questions about how you actually like to think and work. No fluff scoring &mdash; ties are broken honestly and you'll see exactly why a branch was recommended.</p>
+
+    <div class="card quiz-card" id="quiz-card">
+      <div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-progress-bar"></div></div>
+      <div id="quiz-body"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENGINEERING BRANCHES ============ -->
+<section class="section" id="branches">
+  <div class="section-inner">
+    <p class="kicker">03 &mdash; The branches</p>
+    <h2 class="section-title">What each branch actually is, once the placement-brochure shine is off</h2>
+    <div class="branch-grid" id="branch-grid"></div>
+  </div>
+</section>
+
+<!-- ============ COACHING ============ -->
+<section class="section section-alt" id="coaching">
+  <div class="section-inner">
+    <p class="kicker">04 &mdash; Coaching institutes</p>
+    <h2 class="section-title">An honest read on the major players</h2>
+    <p class="section-lede">Performance claims shift every year &mdash; treat the rank-counts below as directional, not gospel, and re-check current year results before committing two years of fees.</p>
+    <div class="coaching-grid" id="coaching-grid"></div>
+
+    <div class="card callout-card">
+      <h3>Why local/regional institutes are usually a harder road for JEE</h3>
+      <ul class="check-list" id="local-reasons"></ul>
+      <p class="callout-note">These are general patterns, not rules &mdash; some local institutes are genuine exceptions. But the top coaching institutes remove the guesswork.</p>
+    </div>
+
+    <div class="card suggestion-card">
+      <h3>If you're choosing today</h3>
+      <p>Lean toward <strong>Allen</strong>, <strong>Physics Wallah</strong> (the online track &mdash; it's strong on price-to-quality, though slower-paced than Allen/Narayana/Sri Chaitanya; the offline "Vidyapeeth" centres are a different, less consistent product based on general public opinion), <strong>Narayana</strong>, or <strong>Sri Chaitanya</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKS & MATERIALS ============ -->
+<section class="section" id="books">
+  <div class="section-inner">
+    <p class="kicker">05 &mdash; Materials</p>
+    <h2 class="section-title">Quality over quantity, in order of priority</h2>
+    <ol class="priority-list">
+      <li><strong>Your coaching's modules and DPPs first.</strong> Always. Allen's modules are widely considered the strongest available in India and are worth following separately even if you're not enrolled there.</li>
+      <li><strong>Reference books second</strong> &mdash; alongside if you have bandwidth, otherwise after your coaching material is solid.</li>
+      <li><strong>PYQs are non-negotiable.</strong> Skipping them is one of the most common, most expensive mistakes in JEE prep.</li>
+    </ol>
+
+    <div class="books-grid" id="books-grid"></div>
+
+    <div class="card test-series-card">
+      <h3>Test series</h3>
+      <p><strong>Allen's test series is the strongest overall</strong> &mdash; reportedly calibrated slightly above actual JEE Advanced difficulty &mdash; and worth giving even if you're enrolled elsewhere. FIITJEE and MathonGo are solid alternatives. Always give your own institute's series too, and prefer <strong>offline</strong> test series where possible.</p>
+    </div>
+
+    <div class="card pyq-card">
+      <h3>PYQ sources</h3>
+      <div class="chip-row">
+        <span class="chip">Arihant PYQ</span>
+        <span class="chip">MTG PYQ</span>
+        <span class="chip">Disha PYQ</span>
+      </div>
+    </div>
+
+    <div class="card habits-card">
+      <h3>Habits that compound</h3>
+      <ul class="check-list" id="habits-list"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IIT RANKINGS ============ -->
+<section class="section section-alt" id="rankings">
+  <div class="section-inner">
+    <p class="kicker">06 &mdash; Reference</p>
+    <h2 class="section-title">IIT global standing</h2>
+    <p class="section-lede">QS World University Rankings &mdash; included for context, not as the only lens worth using. <a href="https://www.topuniversities.com/world-university-rankings?countries=in" target="_blank" rel="noopener">View the live rankings →</a></p>
+    <div class="table-wrap">
+      <table class="rank-table" id="rank-table"></table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SYLLABUS ============ -->
+<section class="section" id="syllabus">
+  <div class="section-inner">
+    <p class="kicker">07 &mdash; Syllabus</p>
+    <h2 class="section-title">Class 11 &amp; 12 PCM, as per NCERT</h2>
+    <p class="section-lede">The chapter list below mirrors the NCERT Class 11 and 12 PCM syllabus. For the official exam-specific syllabus, download the current documents directly.</p>
+
+    <div class="download-row">
+      <a class="btn btn-primary" href="syllabus/JEE_Main_Syllabus_2026.pdf" download>↓ JEE Main Syllabus 2026</a>
+      <a class="btn btn-primary" href="syllabus/JEE_Advanced_Syllabus_2026.pdf" download>↓ JEE Advanced Syllabus 2026</a>
+    </div>
+
+    <div class="syllabus-tabs">
+      <button class="tab-btn active" data-class="11">Class 11</button>
+      <button class="tab-btn" data-class="12">Class 12</button>
+    </div>
+    <div class="syllabus-grid" id="syllabus-grid"></div>
+  </div>
+</section>
+
+<!-- ============ OLYMPIAD ============ -->
+<section class="section section-alt" id="olympiad">
+  <div class="section-inner">
+    <p class="kicker">08 &mdash; Olympiads alongside JEE</p>
+    <h2 class="section-title">Use the overlap. Don't compete with yourself.</h2>
+    <div class="olympiad-layout">
+      <div class="olympiad-text">
+        <p>Olympiad foundations built from Class 8&ndash;9 give a real edge &mdash; conceptual depth and problem-solving intuition that JEE Advanced rewards directly. But starting a <em>full Olympiad batch</em> in Class 11&ndash;12, on top of JEE prep, is a common, costly mistake.</p>
+        <p>The better strategy in 11th/12th: register for the exams for the exposure and pressure-testing, cover only the syllabus portions that overlap with JEE (especially strong for NSEP/NSEC), and solve Olympiad PYQs as extra problem-solving reps. You get Olympiad-level sharpness without spending JEE's limited clock.</p>
+        <a href="https://olympiads.hbcse.tifr.res.in/" target="_blank" rel="noopener" class="text-link">HBCSE Olympiad portal →</a>
+      </div>
+      <div class="olympiad-track">
+        <h4>Mathematics track</h4>
+        <ol class="stage-list">
+          <li><strong>IOQM</strong> &mdash; Indian Olympiad Qualifier in Mathematics (formerly PRMO)</li>
+          <li><strong>RMO</strong> &mdash; Regional Mathematics Olympiad</li>
+          <li><strong>INMO</strong> &mdash; Indian National Mathematics Olympiad (INMO awardee status is recognised by some IITs, IISc, ISI)</li>
+          <li><strong>IMOTC</strong> &mdash; International training camp / selection</li>
+          <li><strong>IMO</strong> &mdash; International Mathematics Olympiad</li>
+        </ol>
+        <h4>Science tracks (government-recognised, NSE series)</h4>
+        <ul class="science-grid">
+          <li><strong>NSEJS</strong> → INJSO <span>up to Class 10</span></li>
+          <li><strong>NSEP</strong> → INPhO <span>Physics</span></li>
+          <li><strong>NSEC</strong> → INChO <span>Chemistry</span></li>
+          <li><strong>NSEB</strong> → INBO <span>Biology</span></li>
+          <li><strong>NSEA</strong> <span>Astronomy</span></li>
+        </ul>
+        <p class="fine-note">Government/HBCSE-recognised Olympiads only &mdash; not school-circuit competitions like SilverZone or SOF. For Math Olympiad / ISI / CMI prep specifically, Vedantu Olympiad School (VOS) and Kolkata-based Ramanujan School of Mathematics (RSM) are both well regarded.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESOURCES ============ -->
+<section class="section" id="resources">
+  <div class="section-inner">
+    <p class="kicker">09 &mdash; Resources</p>
+    <h2 class="section-title">Tools and free resources worth bookmarking</h2>
+    <div class="resource-grid" id="resource-grid"></div>
+
+    <div class="card oneshot-card">
+      <h3>On YouTube "oneshots"</h3>
+      <p>Oneshots are not a syllabus-completion strategy &mdash; sitting through 7&ndash;8 hours to "finish" a chapter rarely builds real understanding. <span class="quote-line">"30 days, 30 oneshots, khel khatam"</span> is the cautionary joke for a reason. Use oneshots for backlog clearing and revision; build the syllabus the first time through good books and your coaching's classes. Early, <em>properly done</em> syllabus completion is genuinely valuable &mdash; it just has to be properly done.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark">⊹</span>
+      <span>CHART<span class="brand-sub">/jee</span></span>
+    </div>
+    <p class="footer-line">Believe the process. Stay consistent. The result follows.</p>
+    <p class="footer-fine">Built as a route, not a lecture. Re-verify rankings, fees, and results against current-year sources before making decisions.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
